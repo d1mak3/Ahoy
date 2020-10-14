@@ -74,7 +74,7 @@ namespace Test
                     checkCondition = false;
                 }
                 else if (key.Key == ConsoleKey.RightArrow && indexGroup < 355) // Если нажали вправо и при этом мы не на самой последней группе, то переходим на группу вперёд (на 5 ячеек вперёд)
-        {
+                {
                     indexGroup += 5;
                     Console.Clear();
                     checkCondition = false;
@@ -104,7 +104,7 @@ namespace Test
                     else if (checkCondition == true) // Если сейчас нечетная, то выводим четную
                     {
                         if (indexGroup % 20 == 0 && indexGroup > 5) // Т.к. раз в 4 группы расписание съезжает немного вправо, надо раз в 4 группы переносить индекс вперёд
-            {
+                        {
                             indexGroup += 5;
                             Console.Clear();
                             Evenweek(excel, indexGroup);
