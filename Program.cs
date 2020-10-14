@@ -15,7 +15,7 @@ namespace Test
             int counter = 3;
             for (int i = 3; i < 74; i += 2)
             {
-                output = _excel.Rows[i][1] + ' ' + _excel.Rows[i][_indexGroup] + '\t' + _excel.Rows[i][_indexGroup + 1] + '\t' + _excel.Rows[i][_indexGroup + 2] + '\t' + _excel.Rows[i][_indexGroup + 3]; // Выводим строку: Номер пары ' ' Название пары '\t' Тип пары '\t' Препод
+                output = _excel.Rows[i][1] + ' ' + _excel.Rows[i][_indexGroup] + '\t' + _excel.Rows[i][_indexGroup + 1] + '\t' + _excel.Rows[i][_indexGroup + 2] + '\t' + _excel.Rows[i][_indexGroup + 3]; // Выводим строку: Номер пары ' ' Название пары '\t' Тип пары '\t' Препод '\t' Аудитория
                 Console.WriteLine(output);
                 counter += 2;
                 if (counter % 15 == 0) // Разделяем дни пунктиром
@@ -33,7 +33,7 @@ namespace Test
             int counter = 4;
             for (int i = 4; i < 74; i += 2)
             {
-                output = _excel.Rows[i - 1][1] + ' ' + _excel.Rows[i][_indexGroup] + '\t' + _excel.Rows[i][_indexGroup + 1] + '\t' + _excel.Rows[i][_indexGroup + 2] + '\t' + _excel.Rows[i][_indexGroup + 3]; // Выводим строку: Номер пары ' ' Название пары '\t' Тип пары '\t' Препод
+                output = _excel.Rows[i - 1][1] + ' ' + _excel.Rows[i][_indexGroup] + '\t' + _excel.Rows[i][_indexGroup + 1] + '\t' + _excel.Rows[i][_indexGroup + 2] + '\t' + _excel.Rows[i][_indexGroup + 3]; // Выводим строку: Номер пары ' ' Название пары '\t' Тип пары '\t' Препод '\t' Аудитория
                 Console.WriteLine(output);
                 counter += 2;
                 if (counter % 16 == 0) // Разделяем дни пунктиром
