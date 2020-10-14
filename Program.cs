@@ -9,14 +9,13 @@ namespace Test
   class Program
   {
     static void Unevenweek(Excel _excel, int _indexGroup)
-    {      
-      string output = string.Empty;
-      output = _excel.Rows[1][_indexGroup].Substring(0, _excel.Rows[1][_indexGroup].IndexOf(' '));
+    {
+      string output = _excel.Rows[1][_indexGroup].Substring(0, _excel.Rows[1][_indexGroup].IndexOf(' ')); // Выводим название группы
       Console.WriteLine(output);
       int counter = 3;
       for (int i = 3; i < 74; i += 2)
       {
-        output = _excel.Rows[i][1] + ' ' + _excel.Rows[i][_indexGroup] + '\t' + _excel.Rows[i][_indexGroup + 1] + '\t' + _excel.Rows[i][_indexGroup + 2];
+        output = _excel.Rows[i][1] + ' ' + _excel.Rows[i][_indexGroup] + '\t' + _excel.Rows[i][_indexGroup + 1] + '\t' + _excel.Rows[i][_indexGroup + 2]; // Выводим строку: Номер пары ' ' Название пары '\t'
         Console.WriteLine(output);
         counter += 2;
         if (counter % 15 == 0)
@@ -29,8 +28,7 @@ namespace Test
 
     static void Evenweek(Excel _excel, int _indexGroup)
     {
-      string output = string.Empty;
-      output = _excel.Rows[1][_indexGroup].Substring(0, _excel.Rows[1][_indexGroup].IndexOf(' '));
+      string output = _excel.Rows[1][_indexGroup].Substring(0, _excel.Rows[1][_indexGroup].IndexOf(' '));
       Console.WriteLine(output);
       int counter = 4;
       for (int i = 4; i < 74; i += 2)
@@ -48,7 +46,7 @@ namespace Test
     static void Main()
     {
       WebClient Schedule = new WebClient();
-      string url = "http://webservices.mirea.ru/upload/iblock/feb/%D0%9A%D0%91%D0%B8%D0%A1%D0%9F%201%20%D0%BA%D1%83%D1%80%D1%81%201%20%D1%81%D0%B5%D0%BC.xlsx";
+      string url = "http://webservices.mirea.ru/upload/iblock/9ae/%D0%9A%D0%91%D0%B8%D0%A1%D0%9F%202%20%D0%BA%D1%83%D1%80%D1%81%201%20%D1%81%D0%B5%D0%BC.xlsx";
       string path = @"C:\Program Files\Ahoy\";
       string title = "Schedule.xlsx";
       bool directoryExistChecker = Directory.Exists(path);
