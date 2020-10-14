@@ -15,7 +15,7 @@ namespace Test
             int counter = 3;
             for (int i = 3; i < 74; i += 2)
             {
-                output = _excel.Rows[i][1] + ' ' + _excel.Rows[i][_indexGroup] + '\t' + _excel.Rows[i][_indexGroup + 1] + '\t' + _excel.Rows[i][_indexGroup + 2]; // Выводим строку: Номер пары ' ' Название пары '\t' Тип пары '\t' Препод
+                output = _excel.Rows[i][1] + ' ' + _excel.Rows[i][_indexGroup] + '\t' + _excel.Rows[i][_indexGroup + 1] + '\t' + _excel.Rows[i][_indexGroup + 2] + '\t' + _excel.Rows[i][_indexGroup + 3]; // Выводим строку: Номер пары ' ' Название пары '\t' Тип пары '\t' Препод
                 Console.WriteLine(output);
                 counter += 2;
                 if (counter % 15 == 0) // Разделяем дни пунктиром
@@ -29,15 +29,15 @@ namespace Test
         static void Evenweek(Excel _excel, int _indexGroup)
         {
             string output = _excel.Rows[1][_indexGroup].Substring(0, _excel.Rows[1][_indexGroup].IndexOf(' ')); // Выводим название группы
-      Console.WriteLine(output);
+            Console.WriteLine(output);
             int counter = 4;
             for (int i = 4; i < 74; i += 2)
             {
-                output = _excel.Rows[i - 1][1] + ' ' + _excel.Rows[i][_indexGroup] + '\t' + _excel.Rows[i][_indexGroup + 1] + '\t' + _excel.Rows[i][_indexGroup + 2]; // Выводим строку: Номер пары ' ' Название пары '\t' Тип пары '\t' Препод
-        Console.WriteLine(output);
+                output = _excel.Rows[i - 1][1] + ' ' + _excel.Rows[i][_indexGroup] + '\t' + _excel.Rows[i][_indexGroup + 1] + '\t' + _excel.Rows[i][_indexGroup + 2] + '\t' + _excel.Rows[i][_indexGroup + 3]; // Выводим строку: Номер пары ' ' Название пары '\t' Тип пары '\t' Препод
+                Console.WriteLine(output);
                 counter += 2;
                 if (counter % 16 == 0) // Разделяем дни пунктиром
-        {
+                {
                     Console.WriteLine("\n---------------------------------------------------\n");
                     counter = 4;
                 }
