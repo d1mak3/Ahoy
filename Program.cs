@@ -46,7 +46,7 @@ namespace Test
         static void Main()
         {
             WebClient Schedule = new WebClient();
-            string url = "http://webservices.mirea.ru/upload/iblock/9ae/%D0%9A%D0%91%D0%B8%D0%A1%D0%9F%202%20%D0%BA%D1%83%D1%80%D1%81%201%20%D1%81%D0%B5%D0%BC.xlsx"; // Ссылка на расписание 2 курса ИКБСП
+            string url = "http://webservices.mirea.ru/upload/iblock/8bf/%D0%9A%D0%91%D0%B8%D0%A1%D0%9F%201%20%D0%BA%D1%83%D1%80%D1%81%201%20%D1%81%D0%B5%D0%BC.xlsx"; // Ссылка на расписание 2 курса ИКБСП
             string path = @"C:\Program Files\Ahoy\"; // Путь к директории, в которой будет храниться файл
             string title = "Schedule.xlsx"; // Название файла
             bool directoryExistChecker = Directory.Exists(path); // Проверяем, есть ли директория
