@@ -37,7 +37,7 @@ namespace Test
         Console.WriteLine(output);
                 counter += 2;
                 if (counter % 16 == 0) // Разделяем дни пунктиром
-        {
+                {
                     Console.WriteLine("\n---------------------------------------------------\n");
                     counter = 4;
                 }
