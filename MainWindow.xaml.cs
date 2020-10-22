@@ -59,10 +59,22 @@ namespace Ahoy
 
       sheet.FileOpen(@Environment.CurrentDirectory + @"\" + $"{defaultInstitute}" + @"\" + $"{defaultInstitute}" + "_1.xlsx");
       
-      While ()
+      // Ищем индекс группу в таблице
+      while (sheet.Rows[1][indexGroup].IndexOf("20") == -1)
+      {
+        if (sheet.Rows[1][indexGroup].IndexOf("БИСО-02-20") != -1)
+          break;
+      }  
 
+      // Записываем расписание на чётную неделю для группы
       List<string> days = new List<string>();
-      days = sheet.EvenWeek(defaultInstitute, "БИСО-02-20", indexGroup);
+      days = sheet.EvenWeek(defaultInstitute, indexGroup);
+      int day = 1;
+
+      for (int i = day; i < day * 6 + 1; ++i) 
+      {
+        
+      }
     }
 
     void NextClick(object sender, RoutedEventArgs e)

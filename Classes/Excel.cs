@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using ClosedXML.Excel;
-using System.Text;
 using System.IO;
 using System.Net;
 
@@ -10,7 +9,7 @@ namespace Ahoy.Classes
 {
   public class Excel
   {
-    private readonly List<List<string>> Rows = new List<List<string>>(); // Таблица из Excel в виде двумерного списка
+    public readonly List<List<string>> Rows = new List<List<string>>(); // Таблица из Excel в виде двумерного списка
     private Dictionary<string, List<string>> institutes = new Dictionary<string, List<string>>();
     public void FileOpen(string path) // Открываем файл -> заполняем список
     {
@@ -75,7 +74,7 @@ namespace Ahoy.Classes
 
     }
 
-    public List<string> EvenWeek(string _institute, string _groupTag, int _indexGroup) // Список данных для чётной недели
+    public List<string> EvenWeek(string _institute, int _indexGroup) // Список данных для чётной недели
     {
       List<string> output = new List<string>();
       output.Add(Rows[1][_indexGroup].Substring(0, Rows[1][_indexGroup].IndexOf(' '))); // Название группы
