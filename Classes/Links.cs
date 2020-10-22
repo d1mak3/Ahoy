@@ -27,7 +27,10 @@ namespace Ahoy.Classes
       }      
     }
 
-    
+    public List<string> UnsortedLinks // Возвращаем список ссылок
+    {
+      get { return unsortedLinks; }
+    }
 
     // Заносим скачанные ссылки в словарь
     public void GetLinks()
