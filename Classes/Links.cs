@@ -28,12 +28,7 @@ namespace Ahoy.Classes
           Console.WriteLine($"Ошибка программы скачивания расписания. Сообщение компилятора: {e}");
         }
       }
-    }
-
-    public List<string> UnsortedLinks // Возвращаем список ссылок
-    {
-      get { return unsortedLinks; }
-    }
+    }    
 
     // Заносим скачанные ссылки в словарь
     public void GetLinks()
@@ -160,9 +155,7 @@ namespace Ahoy.Classes
           Console.WriteLine(e);
         }
     }
-
-    // Доказательство того, что я тупой
-    /*
+   
     // Заносим старые ссылки в словарь
     public void GetLinksOffline()
     {
@@ -271,7 +264,13 @@ namespace Ahoy.Classes
       }
 
       
-    }*/
+    }
+
+    // Возвращаем список ссылок
+    public List<string> UnsortedLinks 
+    {
+      get { return unsortedLinks; }
+    }
 
     // Получаем ссылки из словаря
     public List<string> GetValues (string key)
