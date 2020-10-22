@@ -13,21 +13,22 @@ namespace Ahoy.Classes
     private Dictionary<string, List<string>> sortedLinks = new Dictionary<string, List<string>>(); // Словарь типа ["Группа"] = {"Ссылка", "Ссылка", ...}
     private List<string> unsortedLinks = new List<string>(); // Список со всеми ссылками
 
-    public Links()
+    public Links(bool _needToDownload) 
     {
-      isSuccessfullyDownloaded = true; // Допустим файл сработал успешно
-      try
+      if (_needToDownload) // Если надо скачивать
       {
-        Process.Start(@Environment.CurrentDirectory + @"\downloader.exe");
+        isSuccessfullyDownloaded = true; // Допустим файл сработал успешно
+        try
+        {
+          Process.Start(@Environment.CurrentDirectory + @"\downloader.exe");
+        }
+        catch (Exception e)
+        {
+          isSuccessfullyDownloaded = false; // Если возникла ошибка в работе файла
+          Console.WriteLine($"Ошибка программы скачивания расписания. Сообщение компилятора: {e}");
+        }
       }
-      catch (Exception e)
-      {
-        isSuccessfullyDownloaded = false; // Если возникла ошибка в работе файла
-        Console.WriteLine($"Ошибка программы скачивания расписания. Сообщение компилятора: {e}");
-      }      
-    }
-
-    
+    }    
 
     // Заносим скачанные ссылки в словарь
     public void GetLinks()
@@ -154,9 +155,7 @@ namespace Ahoy.Classes
           Console.WriteLine(e);
         }
     }
-
-    // Доказательство того, что я тупой
-    /*
+   
     // Заносим старые ссылки в словарь
     public void GetLinksOffline()
     {
@@ -265,7 +264,13 @@ namespace Ahoy.Classes
       }
 
       
-    }*/
+    }
+
+    // Возвращаем список ссылок
+    public List<string> UnsortedLinks 
+    {
+      get { return unsortedLinks; }
+    }
 
     // Получаем ссылки из словаря
     public List<string> GetValues (string key)
