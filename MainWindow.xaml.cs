@@ -43,7 +43,6 @@ namespace Ahoy
 
     void NextClick(object sender, RoutedEventArgs e)
     {
-      
     }
   }
 }

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Администратор\source\repos\d1mak3\Ahoy\obj\Debug\
+C:\Users\Администратор\source\repos\d1mak3\Ahoy\obj\Release\
 Ahoy
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\Администратор\source\repos\d1mak3\Ahoy\App.xaml
 11151548125
 
-8-553503952
+7288855415
 125-842781076
 MainWindow.xaml;
 
-False
+True
 
