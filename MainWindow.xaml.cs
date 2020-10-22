@@ -23,7 +23,10 @@ namespace Ahoy
   {
     static bool AskToDownload()
     {
-     MessageBoxResult result = MessageBox.Show("Wanna Download?", "Downloader", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            Classes.Links downloader = new Classes.Links();
+            List<string> comporator = downloader.UnsortedLinks;
+            
+      MessageBoxResult result = MessageBox.Show("Wanna Download?", "Downloader", MessageBoxButton.YesNo, MessageBoxImage.Question);
       bool checker = false;
       if (result == MessageBoxResult.Yes)
       {
