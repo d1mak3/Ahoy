@@ -13,18 +13,21 @@ namespace Ahoy.Classes
     private Dictionary<string, List<string>> sortedLinks = new Dictionary<string, List<string>>(); // Словарь типа ["Группа"] = {"Ссылка", "Ссылка", ...}
     private List<string> unsortedLinks = new List<string>(); // Список со всеми ссылками
 
-    public Links()
+    public Links(bool _needToDownload) 
     {
-      isSuccessfullyDownloaded = true; // Допустим файл сработал успешно
-      try
+      if (_needToDownload) // Если надо скачивать
       {
-        Process.Start(@Environment.CurrentDirectory + @"\downloader.exe");
+        isSuccessfullyDownloaded = true; // Допустим файл сработал успешно
+        try
+        {
+          Process.Start(@Environment.CurrentDirectory + @"\downloader.exe");
+        }
+        catch (Exception e)
+        {
+          isSuccessfullyDownloaded = false; // Если возникла ошибка в работе файла
+          Console.WriteLine($"Ошибка программы скачивания расписания. Сообщение компилятора: {e}");
+        }
       }
-      catch (Exception e)
-      {
-        isSuccessfullyDownloaded = false; // Если возникла ошибка в работе файла
-        Console.WriteLine($"Ошибка программы скачивания расписания. Сообщение компилятора: {e}");
-      }      
     }
 
     public List<string> UnsortedLinks // Возвращаем список ссылок
