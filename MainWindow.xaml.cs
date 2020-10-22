@@ -59,7 +59,7 @@ namespace Ahoy
 
       sheet.FileOpen(@Environment.CurrentDirectory + @"\" + $"{defaultInstitute}" + @"\" + $"{defaultInstitute}" + "_1.xlsx");
       
-
+      While ()
 
       List<string> days = new List<string>();
       days = sheet.EvenWeek(defaultInstitute, "БИСО-02-20", indexGroup);
