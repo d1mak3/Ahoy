@@ -1,8 +1,10 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Wordprocessing;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -54,8 +56,14 @@ namespace Ahoy
 
     public MainWindow()
     {
-      InitializeComponent();
+      InitializeComponent();/* ДИМА тот ещё КЕК */
       Classes.Excel sheet = new Classes.Excel(); // Расим, вот эту штуку надо будет перенести на самый верх этого конструктора, а потом написать тот обработчик, о котором я тебе в вк написал.
+      
+       if (AskToDownload == true) //Обработчик метода AskToDownload 
+       {
+            sheet.DownloadExcels(@Environment.CurrentDirectory + @"\" + $"{defaultInstitute}" + @"\" + $"{defaultInstitute}" + "_1.xlsx");
+       }
+
 
       sheet.FileOpen(@Environment.CurrentDirectory + @"\" + $"{defaultInstitute}" + @"\" + $"{defaultInstitute}" + "_1.xlsx");
       
