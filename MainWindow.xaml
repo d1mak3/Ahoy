@@ -28,10 +28,8 @@
                 <Image Source="Resources/Suzukaze.jpg"/>
             </StackPanel>
         </Button>
-        <Button x:Name="Previous" Grid.Column="0" Grid.Row="3" Grid.RowSpan="2" Background="Transparent">
-            <StackPanel Orientation="Horizontal" x:Name="imagePrev">
-                <Image Source="Resources/test.png"/>
-            </StackPanel>
+        <Button x:Name="Previous" Grid.Column="0" Grid.Row="3" Grid.RowSpan="2" Click="Previous_Click">
+            
         </Button>
 
         <StackPanel x:Name ="Lessons" Grid.Row="1" Grid.Column="1" Grid.RowSpan="7">

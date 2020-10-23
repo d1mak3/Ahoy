@@ -24,6 +24,8 @@ namespace Ahoy
   {
     static int indexGroup = 5;
     static string defaultInstitute = "КБиСП";
+    static int day = 0;
+    static List<string> days = new List<string>();
 
     static bool AskToDownload()
     {
@@ -59,27 +61,54 @@ namespace Ahoy
 
       sheet.FileOpen(@Environment.CurrentDirectory + @"\" + $"{defaultInstitute}" + @"\" + $"{defaultInstitute}" + "_1.xlsx");
       
-      // Ищем индекс группу в таблице
+      // Ищем индекс группы в таблице
       while (sheet.Rows[1][indexGroup].IndexOf("20") == -1)
       {
         if (sheet.Rows[1][indexGroup].IndexOf("БИСО-02-20") != -1)
           break;
+        indexGroup += 5;
       }  
 
-      // Записываем расписание на чётную неделю для группы
-      List<string> days = new List<string>();
+      // Записываем расписание на чётную неделю для группы      
       days = sheet.EvenWeek(defaultInstitute, indexGroup);
-      int day = 1;
 
-      for (int i = day; i < day * 6 + 1; ++i) 
-      {
-        
-      }
+      this.PanelsCreation(days);
     }
 
-    void NextClick(object sender, RoutedEventArgs e)
+    // С помощью этого метода мы будем выводить расписание
+    private void PanelsCreation(List<string> _days)
     {
-      
+      if (Lessons.Children.Count == 0)
+      {
+        Button newCell = new Button();
+        newCell.Content = _days[0];
+        Lessons.Children.Add(newCell);
+      }
+      if (day > 0 && day < _days.Count)
+      {        
+        for (int i = day; i < day + 6; ++i)
+        {
+          Button newCell = new Button();
+          newCell.Content = _days[i].Substring(1,); // Дописать
+          Lessons.Children.Add(newCell);
+        }
+      }      
+    }
+
+    private void NextClick(object sender, RoutedEventArgs e)
+    {   
+      if (day < 6)
+         day += 6; // Переходим на день вперёд      
+      Lessons.Children.Clear();      
+      this.PanelsCreation(days);
+    }
+
+    private void Previous_Click(object sender, RoutedEventArgs e)
+    {
+      if (day > 1)
+        day -= 6; // Переходим на день назад
+      Lessons.Children.Clear();
+      this.PanelsCreation(days);
     }
   }
 }

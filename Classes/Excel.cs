@@ -65,11 +65,15 @@ namespace Ahoy.Classes
       List<string> links = getLinks.UnsortedLinks; // Вытаскиваем ссылки из класса в локальный список
 
       //Скачивание табличек
-      int counter = 0;
+      int counter = 1;
       WebClient excelDownloader = new WebClient();
       foreach (string s in links)
       {
-        excelDownloader.DownloadFile(s, @Environment.CurrentDirectory + @"\Excels\" + _keyForLinks + @"\" + _keyForLinks + $"_{counter}" + ".xlsx"); // Сохраняем файлы в формате типа: (пример) ФТИ_1.xlsx
+        if (s.IndexOf(_keyForLinks) != -1)
+        {
+          excelDownloader.DownloadFile(s, @Environment.CurrentDirectory + @"\Excels\" + _keyForLinks + @"\" + _keyForLinks + $"_{counter}" + ".xlsx"); // Сохраняем файлы в формате типа: (пример) ФТИ_1.xlsx
+          ++counter;
+        }
       }
 
     }

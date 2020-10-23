@@ -147,7 +147,7 @@ namespace Ahoy.Classes
           }
         }
         // Записываем ссылки в файл
-        StreamWriter writeLinks = new StreamWriter(@Environment.CurrentDirectory + "links.txt");
+        StreamWriter writeLinks = new StreamWriter("links.txt");
         foreach (object o in unsortedLinks)
           writeLinks.WriteLine(o);
         writeLinks.Close();
